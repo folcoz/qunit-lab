@@ -1,10 +1,14 @@
+/*global define */
+
 /**
  * Sample AMD module
  */
 define(function () {
+    'use strict';
+
     var module = {};
 
-    var createSample = function () {
+    module.createSample = function () {
         var Sample = function (name) {
             this.name = name;
         };
@@ -13,7 +17,6 @@ define(function () {
         };
         return Sample;
     };
-    module.createSample = createSample;
 
     return module;
 });
