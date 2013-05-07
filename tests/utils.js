@@ -5,6 +5,7 @@
 // Object.create(prototype) definition
 if (typeof Object.create !== "function") {
     Object.create = function (o) {
+        'use strict';
         var F = function () {
         };
         F.prototype = o;
@@ -13,6 +14,7 @@ if (typeof Object.create !== "function") {
 }
 
 var utils = (function () {
+    'use strict';
     var log = function (text) {
             if (window && window.console && window.console.log) {
                 window.console.log(text);
@@ -48,13 +50,13 @@ var utils = (function () {
         isArray = function (a) {
             var toStr = Object.prototype.toString;
             return toStr.apply(a) === "[object Array]";
-        },
-        u = {
-            log: log,
-            defineSample: defineSample,
-            safeDelete: safeDelete,
-            isNumber: isNumber,
-            isArray: isArray
         };
-    return u;
+
+    return {
+        log: log,
+        defineSample: defineSample,
+        safeDelete: safeDelete,
+        isNumber: isNumber,
+        isArray: isArray
+    };
 }());
